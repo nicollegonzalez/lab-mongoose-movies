@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let list = document.getElementById('celebrity-list');//div ID in the hbs
 
-    axios.get('http://localhost:3000/celebritiesCreate')//api datadb not ours bla
+    axios.get('http://localhost:3000/celebritiesCreate')//api datadb not our local one got it?
     .then((response)=>{
 
       // console.log(response);
@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         newDiv.innerHTML = `
           <h4> ${theCelebrity.name} </h4>
-          <h6> ${theCelebrity.ocupation} </h6>
+          <h6> ${theCelebrity.occupation} </h6>
           <h6> ${theCelebrity.catchPhrase} </h6>
         `
         list.appendChild(newDiv);
