@@ -1,12 +1,13 @@
-// models/Celebrity.js
+// models/Movie.js
 
 const mongoose = require("mongoose");
 const Schema   = mongoose.Schema;
 
-const celebritySchema = new Schema({
-  name: String,
-  occupation: String,
-  catchPhrase: String
+const movieSchema = new Schema({
+  title: String,
+  genre: String,
+  plot: String,
+  staring: {type: Schema.Types.ObjectId, ref: 'Celebrity'}
 }
 // , {
 //   timestamps: {
@@ -16,6 +17,6 @@ const celebritySchema = new Schema({
 // }
 );
 
-const CelebrityModel = mongoose.model("Celebrity", celebritySchema);
+const MovieModel = mongoose.model("Movie", movieSchema);
 
-module.exports = CelebrityModel;
+module.exports = MovieModel;
