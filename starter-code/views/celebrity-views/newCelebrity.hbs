@@ -1,6 +1,6 @@
 <h3>Add a New Celebrity to The Library</h3>
 
-<form action="/celebrities/create-new-celebrity" method="post">
+<form action="/celebrities/create-new-celebrity" method="post" enctype="multipart/form-data">
   <label>Name:</label>
   <input type="text" type="text" name="theName">
 
@@ -9,6 +9,9 @@
 
   <label>Catch Phrase:</label>
   <input type="text" type="text" name="theCatchPhrase">
+
+  <label>Celebrity Image:</label>
+  <input type="file" name="thePic">
 
   {{!-- <input type="submit" name="Add" id=""> --}}
   <button type="submit">ADD</button>

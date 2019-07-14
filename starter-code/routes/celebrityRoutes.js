@@ -1,8 +1,8 @@
 const express = require('express');
 const router  = express.Router();
 const Celebrity = require('../models/Celebrity');
-// const Movie = require('../models/Movie');
 
+const uploadMagic = require('../config/cloundinary-setup');
 
 router.get('/celebrities', (req, res, next)=>{
 
@@ -37,16 +37,18 @@ router.get('/celebrities/new',(req,res,next)=>{
 })
 
 /*post new celebrity */
-router.post('/celebrities/create-new-celebrity',(req,res,next)=>{
+router.post('/celebrities/create-new-celebrity',uploadMagic.single('thePic'),(req,res,next)=>{
   const {theName, theOccupation, theCatchPhrase} = req.body;
+  const theImg = req.file.url
+  //Maybe a bug Cause here
   // this is like saying
     // const title = req.body.title;
     // const descrtiption = req.body.descrition;
     // etc.
-  let newCelebrity = {name: theName, occupation: theOccupation, catchPhrase: theCatchPhrase}
-  
+  let newCelebrity = {name: theName, occupation: theOccupation, catchPhrase: theCatchPhrase, image: theImg}
+  // console.log(newCelebrity);
   Celebrity.create(newCelebrity)
-  .then(()=>{
+  .then(()=>{ //nick is passing wolf into .then
     res.redirect('/celebrities')
   })
   .catch((err)=>{

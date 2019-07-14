@@ -68,7 +68,7 @@ router.post('/movies/create-new-movie',(req,res,next)=>{
   })
 })
 
-/*Delete Celebrity */
+/*Delete Movie */
 router.post('/movies/delete/:id', (req, res, next)=>{
 
   Movie.findByIdAndRemove(req.params.id)

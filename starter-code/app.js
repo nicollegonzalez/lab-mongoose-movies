@@ -60,9 +60,8 @@ app.locals.title = 'Express - Generated with IronGenerator';
 
 
 // /*Session*/
-
 // app.use(session({
-//   secret: "Shhhh-super-secret-thing",
+//   secret: "Shhhh",
 //   cookie: { maxAge: 60000 },
 //   store: new MongoStore({
 //     mongooseConnection: mongoose.connection,
@@ -71,7 +70,7 @@ app.locals.title = 'Express - Generated with IronGenerator';
 // }));
 //use the lines below rather than above.
 app.use(session({
-  secret: "shhhhh-super-secret",
+  secret: "Shhhh",
   resave: true,
   saveUninitialized: true
 }));
